@@ -102,25 +102,25 @@ menu_bar = tk.Menu(window)
 file_menu = tk.Menu(menu_bar, tearoff=0)
 menu_bar.add_cascade(label="File", menu=file_menu)
 
-file_menu.add_command(label="Save", command=None)
-file_menu.add_command(label="Open", command=None)
+file_menu.add_command(label="Save", command=save_canvas)
+file_menu.add_command(label="Open", command=open_image)
 file_menu.add_separator()
-file_menu.add_command(label="Exit", command=None)
+file_menu.add_command(label="Exit", command=exit_app)
 window.config(menu=menu_bar)
 
 paint_tools = tk.Frame(window, width=100, height=300, relief=tk.RIDGE, borderwidth=2)
 paint_tools.place(x=0, y=0)
 
 pen_logo = ImageTk.PhotoImage(Image.open('pen.png'))
-pen_button = tk.Button(paint_tools, padx=6, image=pen_logo, borderwidth=2)
+pen_button = tk.Button(paint_tools, padx=6, image=pen_logo, borderwidth=2, command=use_pen)
 pen_button.place(x=60, y=10)
 
 brush_logo = ImageTk.PhotoImage(Image.open('brush.png'))
-brush_button = tk.Button(paint_tools, image=brush_logo, borderwidth=2)
+brush_button = tk.Button(paint_tools, image=brush_logo, borderwidth=2, command=use_brush)
 brush_button.place(x=60, y=40)
 
 color_logo = ImageTk.PhotoImage(Image.open('color.png'))
-color_button = tk.Button(paint_tools, image=color_logo, borderwidth=2)
+color_button = tk.Button(paint_tools, image=color_logo, borderwidth=2, command=choose_color)
 color_button.place(x=60, y=70)
 
 eraser_logo = ImageTk.PhotoImage(Image.open('eraser.png'))
